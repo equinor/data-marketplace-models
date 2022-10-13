@@ -1,0 +1,18 @@
+name: Publish to NPM
+on:
+  release:
+    types: [created]
+
+jobs:
+  setup:
+    uses: equinor/dm-models/.github/workflows/_setup.yml@main
+    with:
+      registry-url: 'https://registry.npmjs.org'
+
+  publish:
+    name: Publish
+    needs: setup
+    steps:
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
