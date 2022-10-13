@@ -1,0 +1,43 @@
+name: Validate code
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  setup:
+    uses: equinor/dm-models/.github/workflows/_setup.yml@main
+  lint:
+    name: Lint
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get base files
+        id: get-base-files
+        uses: actions/cache@v3
+        with:
+          path: |
+            ./*
+            .npm
+          key: ${{ github.sha }}
+      - name: Run lint
+        id: lint
+        run: npm run lint
+
+  test:
+    name: Test
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get base files
+        id: get-base-files
+        uses: actions/cache@v3
+        with:
+          path: |
+            ./*
+            .npm
+          key: ${{ github.sha }}
+      - name: Build without emit
+        id: test-build
+        run: npm test
