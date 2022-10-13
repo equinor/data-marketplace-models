@@ -1,0 +1,44 @@
+name: _Setup
+on:
+  workflow_call:
+    registry-url:
+      required: false
+      type: string
+
+jobs:
+  setup:
+    name: Checkout and setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v3
+      - name: Setup Node
+        id: setup-node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: ${{ inputs.registry-url }}
+      - name: Cache node_modules
+        id: cache-node-modules
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: .npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+      - name: Node version
+        run: node --version
+      - name: NPM version
+        run: npm --version
+      - name: Install dependencies
+        id: install-dependencies
+        run: npm ci --cache .npm --prefer-offline
+      - name: Cache base files
+        id: cache-base-files
+        uses: actions/cache@v3
+        with:
+          path: |
+            ./*
+            .npm
+          key: ${{ github.sha }}
