@@ -1,0 +1,21 @@
+{
+  "name": "@equinor/dm-models",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "lint": "eslint . --ext .ts",
+    "format": "prettier --write types",
+    "test": "tsc **/*.ts --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.0",
+    "eslint": "^8.25.0",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.4"
+  }
+}
