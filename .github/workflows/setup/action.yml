@@ -5,6 +5,9 @@ on:
       required: false
       type: string
 
+env:
+  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
 jobs:
   setup:
     name: Checkout and setup
@@ -35,3 +38,9 @@ jobs:
             ./*
             .npm
           key: ${{ github.sha }}
+      - name: Log errors to Slack
+        uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status }}
+          steps: ${{ toJson(steps) }}
+        if: failure()
