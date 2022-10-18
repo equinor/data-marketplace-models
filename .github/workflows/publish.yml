@@ -1,0 +1,28 @@
+name: Publish to NPM
+on:
+  release:
+    types: [created]
+
+env:
+  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+jobs:
+  setup:
+    uses: equinor/dm-models/.github/workflows/_setup.yml@main
+    with:
+      registry-url: 'https://registry.npmjs.org'
+
+  publish:
+    - name: Publish
+      needs: setup
+      steps:
+        - id: publish
+          run: npm publish
+          env:
+            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        - name: Log errors to Slack
+          uses: act10ns/slack@v1
+          with:
+            status: ${{ job.status }}
+            steps: ${{ toJson(steps) }}
+          if: failure()
