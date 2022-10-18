@@ -11,13 +11,15 @@ env:
 jobs:
   setup:
     uses: equinor/dm-models/.github/workflows/_setup.yml@main
+    with:
+      cache-key: ${{ github.sha }}
   lint:
     name: Lint
     needs: setup
     runs-on: ubuntu-latest
     steps:
-      - name: Get base files
-        id: get-base-files
+      - name: Get files
+        id: get-files
         uses: actions/cache@v3
         with:
           path: |
@@ -39,8 +41,8 @@ jobs:
     needs: setup
     runs-on: ubuntu-latest
     steps:
-      - name: Get base files
-        id: get-base-files
+      - name: Get files
+        id: get-files
         uses: actions/cache@v3
         with:
           path: |
