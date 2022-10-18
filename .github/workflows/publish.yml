@@ -16,7 +16,8 @@ jobs:
     - name: Publish
       needs: setup
       steps:
-        - run: npm publish
+        - id: publish
+          run: npm publish
           env:
             NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         - name: Log errors to Slack
