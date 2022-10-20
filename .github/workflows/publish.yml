@@ -17,6 +17,14 @@ jobs:
     name: Publish
     needs: setup
     steps:
+      - name: Get files
+        id: get-files
+        uses: actions/cache@v3
+        with:
+          path: |
+            ./*
+            .npm
+          key: ${{ github.sha }}
       - id: publish
         run: npm publish
         env:
