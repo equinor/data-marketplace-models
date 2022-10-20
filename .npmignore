@@ -1,0 +1,6 @@
+.editorconfig
+.eslintrc
+.eslintignore
+.prettierrc
+.husky/
+.github/
