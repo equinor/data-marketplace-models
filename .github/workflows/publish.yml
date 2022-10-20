@@ -25,9 +25,9 @@ jobs:
             .npm
           key: ${{ github.sha }}
       - id: publish
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          npm config set '//registry.npmjs.org/:_authToken' ${{ secrets.NPM_TOKEN }}
+          npm publish --access public
       - name: Log errors to Slack
         uses: act10ns/slack@v1
         with:
