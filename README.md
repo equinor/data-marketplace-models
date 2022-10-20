@@ -2,8 +2,6 @@
 
 ## Installation
 
-**NOTE:** Not yet published
-
 ```sh
 [npm|pnpm|yarn] add @equinor/dm-models
 ```
