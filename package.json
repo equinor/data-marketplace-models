@@ -1,7 +1,7 @@
 {
-  "name": "@equinor/dm-models",
-  "version": "1.0.1",
-  "description": "",
+  "name": "@equinor/data-marketplace-models",
+  "version": "1.0.0",
+  "description": "Domain models shared between Data Marketplace apps",
   "main": "index.ts",
   "scripts": {
     "lint": "eslint . --ext .ts",
@@ -10,6 +10,13 @@
   },
   "keywords": [],
   "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/equinor/data-marketplace-models"
+  },
+  "bugs": {
+    "url": "https://github.com/equnior/data-marketplace-models/issues"
+  },
   "license": "ISC",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.40.0",
