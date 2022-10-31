@@ -1,6 +1,7 @@
-import { Entity} from "./Entity";
+import type { Entity } from "./Entity"
+import type { Block } from "./Block"
 
 export interface Attribute extends Entity {
   name: string
-  value: string
+  value: Block[] | string
 }

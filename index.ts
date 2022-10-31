@@ -1,2 +1,6 @@
 export type { Asset } from "./types/Asset"
 export type { User } from "./types/User"
+export type { Block } from "./types/Block"
+export type { BlockChild } from "./types/Block"
+export type { MarkDef } from "./types/Block"
+export type { RightsToUse } from "./types/RightsToUse"
