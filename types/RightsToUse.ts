@@ -1,10 +1,10 @@
 import type { Entity } from "./Entity"
 import type { Attribute } from "./Attribute"
-import type { Block } from "./Block"
+import {PortableTextBlock} from "@portabletext/types";
 
 export interface RightsToUse extends Entity {
   name: string
-  description: Block[] | string
+  description: PortableTextBlock[] | string
   authURL: Attribute
   terms: Attribute
 }
