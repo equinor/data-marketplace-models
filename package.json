@@ -25,8 +25,10 @@
     ]
   },
   "license": "ISC",
+  "peerDependencies": {
+    "@portabletext/types": "^2.0.0"
+  },
   "devDependencies": {
-    "@portabletext/types": "^2.0.0",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
     "eslint": "^8.25.0",
