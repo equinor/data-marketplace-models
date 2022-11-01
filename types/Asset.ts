@@ -1,14 +1,15 @@
 import type { Entity } from "./Entity"
 import type { NamedEntityReference } from "./NamedEntityReference"
 import type { LabelledEntityReference } from "./LabelledEntityReference"
+import { PortableTextBlock } from "@portabletext/types"
 
 export interface Asset extends Entity {
   /** A short description of the asset in plain text */
-  excerpt?: string
+  excerpt?: PortableTextBlock[]
   /** A longer description of the asset */
-  description: string
+  description: PortableTextBlock[]
   /** Describes how often an asset is updated */
-  updateFrequency: string
+  updateFrequency: PortableTextBlock[]
   /** A reference to the provider the asset was sourced from (e.g. Collibra) */
   provider: NamedEntityReference
   /** The type of asset (e.g. Data Product) */
