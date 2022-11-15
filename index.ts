@@ -1,3 +1,5 @@
 export type { Asset } from "./types/Asset"
 export type { User } from "./types/User"
 export type { RightsToUse } from "./types/RightsToUse"
+export type { Role } from "./types/Role"
+export type { Maintainer } from "./types/Maintainer"
