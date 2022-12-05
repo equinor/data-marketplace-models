@@ -1,9 +1,9 @@
-import type { Entity } from "./Entity"
-import type { NamedEntityReference } from "./NamedEntityReference"
 import type { LabelledEntityReference } from "./LabelledEntityReference"
-import { PortableTextBlock } from "@portabletext/types"
+import type { NamedEntityReference } from "./NamedEntityReference"
+import type { NamedEntity } from "./NamedEntity"
+import type { PortableTextBlock } from "@portabletext/types"
 
-export interface Asset extends Entity {
+export interface Asset extends NamedEntity {
   /** A short description of the asset in plain text */
   excerpt?: PortableTextBlock[]
   /** A longer description of the asset */
