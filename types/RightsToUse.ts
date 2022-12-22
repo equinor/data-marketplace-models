@@ -1,6 +1,6 @@
 import type { Entity } from "./Entity"
 import type { Attribute } from "./Attribute"
-import {PortableTextBlock} from "@portabletext/types";
+import type { PortableTextBlock } from "@portabletext/types"
 
 export interface RightsToUse extends Entity {
   name: string
