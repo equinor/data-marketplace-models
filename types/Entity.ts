@@ -1,4 +1,4 @@
-import { Identifiable } from "./Identifiable"
+import type { Identifiable } from "./Identifiable"
 
 export interface Entity extends Identifiable {
   /** When the entity was created */
