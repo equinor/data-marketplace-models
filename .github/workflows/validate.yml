@@ -14,9 +14,10 @@ env:
 
 jobs:
   setup:
-    uses: equinor/dm-models/.github/workflows/_setup.yml@main
+    uses: equinor/data-marketplace-models/.github/workflows/_setup.yml@main
     with:
       cache-key: ${{ github.sha }}
+
   lint:
     name: Lint
     needs: setup
