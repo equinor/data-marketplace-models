@@ -1,6 +1,6 @@
 {
   "name": "@equinor/data-marketplace-models",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "description": "Domain models shared between Data Marketplace apps",
   "main": "index.ts",
   "scripts": {
