@@ -14,6 +14,8 @@ export interface Asset extends NamedEntity {
   provider: NamedEntityReference
   /** The type of asset (e.g. Data Product) */
   type: NamedEntityReference
+  /** The Community the Asset belongs to */
+  community: NamedEntityReference
   /** A list of tags registered on an asset */
   tags?: LabelledEntityReference[]
   /** A number between 0 and 1, representing of the calculated quality of the asset */
